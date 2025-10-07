@@ -1,10 +1,17 @@
-import { Tabs } from "expo-router";
+import {Redirect, Tabs} from "expo-router";
 import {Text, Pressable, View, Platform} from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { PencilRuler } from "lucide-react-native";
 import {MenuItemLogOut} from "@/features/auth/components/MenuItemLogOut";
+import {useAuthContext} from "@/features/auth/contexts/AuthContext";
 
 export default function TabsLayout() {
+    const { authenticated } = useAuthContext();
+
+    if (authenticated === false) {
+        return <Redirect href="/auth"/>
+    }
+
     return (
         <Tabs
             screenOptions={{
