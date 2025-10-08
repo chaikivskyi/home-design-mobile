@@ -1,3 +1,3 @@
 export interface TokenEntity {
-    access_token: string;
+  access_token: string;
 }
