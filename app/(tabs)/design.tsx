@@ -11,8 +11,6 @@ export default function DesignScreen() {
   const [uploading, setUploading] = useState(false);
   const { pickFromGallery, takePhoto } = useImagePicker();
 
-  const uploadUrl = 'https://your.api/upload';
-
   const changePhoto = () => {
     Alert.alert('Change photo', 'Pick a source', [
       { text: 'Cancel', style: 'cancel' },
@@ -50,7 +48,6 @@ export default function DesignScreen() {
           picked={picked}
           uploading={uploading}
           setUploading={setUploading}
-          uploadUrl={uploadUrl}
           onSuccess={() => {
             Alert.alert('Success', 'Image uploaded successfully.');
             setPicked(null);

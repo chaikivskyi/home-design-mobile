@@ -8,7 +8,12 @@ export function setAuthToken(token: string | null) {
 
 export async function apiFetch(path: string, init: RequestInit = {}) {
   const headers = new Headers(init.headers);
-  headers.set('Content-Type', 'application/json');
+  headers.set('Accept', 'application/json');
+  const isFormData = typeof FormData !== 'undefined' && init.body instanceof FormData;
+
+  if (!isFormData) {
+      headers.set('Content-Type', 'application/json');
+  }
 
   if (authToken) {
     headers.set('Authorization', `Bearer ${authToken}`);

@@ -1,6 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { apiFetch, setAuthToken } from '@/services/api/client';
-import { saveToken } from '@/features/auth/services/authStorage';
+import { apiFetch } from '@/services/api/client';
 import { UserEntity } from '@/features/auth/types/user.type';
 import { TokenEntity } from '@/features/auth/types/token.type';
 
